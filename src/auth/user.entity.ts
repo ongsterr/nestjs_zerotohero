@@ -12,6 +12,6 @@ export class User {
   @Column()
   password: string
 
-  @OneToMany((_type) => Task, (task) => task.user, { eager: true })
+  @OneToMany((_type) => Task, (task) => task.user, { eager: true }) // eager=false when we fetch user, we will also fetch the tasks with it
   tasks: Task[]
 }
