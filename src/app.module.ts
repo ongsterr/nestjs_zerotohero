@@ -20,7 +20,14 @@ import { devConfig, prodConfig } from './config/config'
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: async (configService: ConfigService) => {
-        return configService.get('dev.database')
+        const isProduction = configService.get('STAGE') === 'prod'
+        return {
+          ssl: isProduction,
+          extra: {
+            ssl: isProduction ? { rejectUnauthorized: false } : null,
+          },
+          ...configService.get('dev.database'),
+        }
       },
     }),
     AuthModule,
