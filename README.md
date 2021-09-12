@@ -7,4 +7,5 @@ This repo is part of the Udemy course for [Nestjs Zero to Hero](https://www.udem
 Anyone considering to pick up NestJS. This course is highly recommended.
 
 To check out the final deployed project, see below link:
+
 https://ongsterr.github.io/task-management-frontend/
