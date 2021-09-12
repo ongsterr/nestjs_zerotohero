@@ -15,7 +15,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config'
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: async (configService: ConfigService) => {
-        return configService.get('dev.auth.jwt')
+        return configService.get(`${process.env.STAGE}.auth.jwt`)
       },
     }),
     TypeOrmModule.forFeature([UsersRepository]),
