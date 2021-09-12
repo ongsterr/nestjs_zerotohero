@@ -26,7 +26,7 @@ import { devConfig, prodConfig } from './config/config'
           extra: {
             ssl: isProduction ? { rejectUnauthorized: false } : null,
           },
-          ...configService.get('dev.database'),
+          ...configService.get(`${process.env.STAGE}.database`),
         }
       },
     }),
